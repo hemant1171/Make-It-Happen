@@ -1,8 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.hvg_group.makeithappen.MainActivity">
+<TextView
+    android:id="@+id/textView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/txtsignup"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="15dp"
+    android:text="OR"
+    android:textAlignment="center" />
+
+
+<EditText
+    android:id="@+id/edtxt_mail_login"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true"
+    android:layout_below="@+id/textView4"
+    android:layout_marginTop="15dp"
+    android:ems="10"
+    android:hint="E - Mail"
+    android:inputType="textPersonName" />
+
+
+<TextView
+    android:id="@+id/textView4"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/img_login"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="25dp"
+    android:text="Make It Happen"
+    android:textAlignment="center"
+    android:textAppearance="@android:style/TextAppearance.Material.Large"
+    android:textSize="24sp" />
+
+<Button
+    android:id="@+id/btn_login"
+    style="@style/Widget.AppCompat.Button"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/textView6"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="15dp"
+    android:backgroundTint="@android:color/white"
+    android:onClick="Signin"
+    android:text="LOGIN"
+    android:textSize="18sp" />
+
+<ImageView
+    android:id="@+id/img_login"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentTop="true"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="20dp"
+    app:srcCompat="@mipmap/ic_launcher" />
+
+<TextView
+    android:id="@+id/txtsignup"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/btn_login"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="15dp"
+    android:clickable="true"
+    android:linksClickable="false"
+    android:onClick="signup"
+    android:text="New User? Sign Up"
+    android:textSize="18sp"
+    android:textStyle="bold" />
+
+<TextView
+    android:id="@+id/textView6"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentEnd="true"
+    android:layout_alignParentRight="true"
+    android:layout_below="@+id/textInputLayout3"
+    android:clickable="true"
+    android:onClick="forgotPass"
+    android:text="Forgot Password?"
+    android:textSize="17sp" />
+
+<TextView
+    android:id="@+id/textView5"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/textView"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="10dp"
+    android:text="--- Sign in with ---"
+    android:textAlignment="center"
+    android:textAllCaps="true"
+    android:textStyle="bold" />
+
+<com.google.android.gms.common.SignInButton
+    android:id="@+id/btn_gsignin"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true"
+    android:layout_below="@+id/textView5"
+    android:layout_marginLeft="5dp"
+    android:layout_marginTop="10dp"
+    android:layout_toLeftOf="@+id/btn_login"
+    android:clickable="true" />
+
+<Button
+    android:id="@+id/btn_fbsignin"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignBottom="@+id/btn_gsignin"
+    android:layout_alignParentEnd="true"
+    android:layout_alignParentRight="true"
+    android:layout_alignTop="@+id/btn_gsignin"
+    android:layout_marginRight="10dp"
+    android:layout_toRightOf="@+id/btn_login"
+    android:backgroundTint="@android:color/white"
+    android:text="Facebook"
+    android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+<android.support.design.widget.TextInputLayout
+    android:id="@+id/textInputLayout3"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true"
+    android:layout_below="@+id/edtxt_mail_login"
+    app:passwordToggleDrawable="@drawable/icon_selector"
+    app:passwordToggleEnabled="true"
+    app:passwordToggleTint="@color/colorAccent">
+
+    <EditText
+        android:id="@+id/edtxt_pass_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/edtxt_mail_login"
+        android:ems="10"
+        android:hint="Enter Password"
+        android:inputType="textPassword" />
+</android.support.design.widget.TextInputLayout>
+
+<Button
+    android:id="@+id/button2"
+    style="@style/Widget.AppCompat.Button.Borderless"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentEnd="true"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentTop="true"
+    android:drawableRight="@drawable/ic_navigate_next_black_24dp"
+    android:onClick="Home"
+    android:text="Skip" />
 
 </RelativeLayout>
