@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
 
     String mailid, passwd, userId,usrnme;
+    String usr_login = "";
     EditText mail, pass;
     TextInputLayout inputLayout;
     FirebaseAuth firebaseAuth;
@@ -44,11 +45,34 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     FirebaseUser user;
     GoogleApiClient googleApiClient;
     DatabaseReference dbref;
+ //   SharedPreferences prefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        boolean previouslyStarted = prefs.getBoolean("firstlogin", true);
+        if(previouslyStarted)
+        {
+            SharedPreferences.Editor edit = prefs.edit();
+            edit.putBoolean("firstlogin", false);
+            edit.apply();
+        }
+        else {
+            Intent intent1 = getIntent();
+            usr_login = intent1.getStringExtra("userwantslogin");
+            if (usr_login == null || !usr_login.equals("FORCED_LOGIN")) {
+                Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                intent.putExtra("Status", "SKIP_LOGIN");
+                startActivity(intent);
+                finish();
+            }
+
+            }
+
 
         mail = (EditText) findViewById(R.id.edtxt_mail_login);
         pass = (EditText) findViewById(R.id.edtxt_pass_login);
