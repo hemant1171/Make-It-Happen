@@ -26,6 +26,7 @@ public class HomeActivity extends AppCompatActivity {
         {
             Intent intent = new Intent(HomeActivity.this,MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            intent.putExtra("userwantslogin","FORCED_LOGIN");
             startActivity(intent);
         }
         if(item.getTitle().toString().equals("Logout"))
